@@ -3,6 +3,8 @@ import { combineReducers } from "redux";
 function user(state = {}, action) {
   if (action.type === "LOGIN") {
     return (state = action.payload);
+  } else if (action.type === "REGISTER") {
+    return (state = action.payload);
   } else {
     return state;
   }

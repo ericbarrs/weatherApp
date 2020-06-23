@@ -12,7 +12,6 @@ module.exports.login = (req, res) => {
       return;
     }
 
-    const email = req.body.email;
     const password = req.body.password;
     const match = await bcrypt.compare(password, user.password);
 
@@ -28,9 +27,12 @@ module.exports.login = (req, res) => {
       token
     ) {
       const User = {};
-      console.log(token);
       User.token = token;
-      User.email = email;
+      User.email = user.email;
+      User.city = user.city;
+      User.state = user.state;
+      User.zipcode = user.zipcode;
+      User.setting = user.settings;
       User.id = user._id;
       res.json(User);
     });

@@ -5,3 +5,14 @@
 .heading {
 	text-align: center;
 }
+
+.Register {
+	height: auto;
+	margin-bottom: 20px;
+}
+
+.Register form {
+	padding: 30px;
+	border-radius: 15px;
+	background-color: rgb(233, 236, 239);
+}

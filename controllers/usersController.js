@@ -57,7 +57,7 @@ module.exports.create = (req, res) => {
 				registeredUser.email = User.email;
 				registeredUser.id = User._id;
 
-				jwt.sign({ user: registeredUser }, process.env.secret, function (
+				jwt.sign({ user: registeredUser }, process.env.SECRET, function (
 					err,
 					token
 				) {

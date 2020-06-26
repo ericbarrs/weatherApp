@@ -31,17 +31,10 @@ mongoose
 		console.log(`DB Error ${err}`);
 	});
 
-let protected = ["transformed.js", "main.css", "favicon.ico"];
+app.use(express.static("dashboard/build"));
 
-app.get("*", (req, res) => {
-	let path = req.params["0"].substring(1);
-
-	if (protected.includes(path)) {
-		// Return the actual file
-		res.sendFile(path.join(__dirname, "build", "index.html"));
-	} else {
-		res.sendFile(path.join(__dirname, "build", "index.html"));
-	}
+app.get("*/", (req, res) => {
+	res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(port, (err) => {

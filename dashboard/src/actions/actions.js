@@ -68,7 +68,7 @@ export function logOutUser() {
 
 export function fetchWeather(zipcode) {
 	return async function (dispatch) {
-		const url = `http://api.weatherstack.com/forecast?access_key=${env.access_key}&query=${zipcode}`;
+		const url = `http://api.weatherstack.com/forecast?access_key="${env.access_key}"&query=${zipcode}`;
 		try {
 			const weather = await axios.get(url);
 

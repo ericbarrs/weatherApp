@@ -3,21 +3,27 @@ const app = express();
 const users = require("./routes/usersRoute");
 const login = require("./routes/loginRoute");
 const settings = require("./routes/settingRoute");
+const weather = require("./routes/weatherRoute");
 const mongoose = require("mongoose");
 const path = require("path");
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 app.use(express.json({ limit: "100kb" }));
 
 app.use("/users", users);
 app.use("/login", login);
 app.use("/settings", settings);
+app.use("/weather", weather);
 
 mongoose
-	.connect(process.env.DB, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
+	.connect(
+		process.env.DB ||
+			"mongodb+srv://eric:eric1234@cluster0-jmtd8.mongodb.net/WeatherApp?retryWrites=true&w=majority",
+		{
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		}
+	)
 	.then(() => {
 		console.log("DB connected");
 	})

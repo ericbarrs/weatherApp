@@ -25,16 +25,20 @@ module.exports.login = (req, res) => {
 		User.email = user.email;
 		User.id = user._id;
 
-		jwt.sign({ user: User }, process.env.SECRET, function (err, token) {
-			User.firstName = user.firstName;
-			User.lastName = user.lastName;
-			User.city = user.city;
-			User.state = user.state;
-			User.zipcode = user.zipcode;
-			User.settings = user.settings;
-			User.token = token;
-			res.json(User);
-		});
+		jwt.sign(
+			{ user: User },
+			process.env.SECRET || "IcantTellYouAnything",
+			function (err, token) {
+				User.firstName = user.firstName;
+				User.lastName = user.lastName;
+				User.city = user.city;
+				User.state = user.state;
+				User.zipcode = user.zipcode;
+				User.settings = user.settings;
+				User.token = token;
+				res.json(User);
+			}
+		);
 	});
 };
 
@@ -43,24 +47,28 @@ module.exports.verify = (req, res) => {
 	const bearer = header.split(" ");
 	const token = bearer[1];
 
-	jwt.verify(token, process.env.SECRET, (err, authorizedData) => {
-		if (err) {
-			//If error send Forbidden (403)
-			console.log(err);
-			res.sendStatus(403);
-		} else {
-			users.findOne({ email: authorizedData.user.email }).then((user) => {
-				const User = {};
-				User.firstName = user.firstName;
-				User.lastName = user.lastName;
-				User.email = user.email;
-				User.id = user._id;
-				User.city = user.city;
-				User.state = user.state;
-				User.zipcode = user.zipcode;
-				User.settings = user.settings;
-				res.status(200).json({ User });
-			});
+	jwt.verify(
+		token,
+		process.env.SECRET || "IcantTellYouAnything",
+		(err, authorizedData) => {
+			if (err) {
+				//If error send Forbidden (403)
+				console.log(err);
+				res.sendStatus(403);
+			} else {
+				users.findOne({ email: authorizedData.user.email }).then((user) => {
+					const User = {};
+					User.firstName = user.firstName;
+					User.lastName = user.lastName;
+					User.email = user.email;
+					User.id = user._id;
+					User.city = user.city;
+					User.state = user.state;
+					User.zipcode = user.zipcode;
+					User.settings = user.settings;
+					res.status(200).json({ User });
+				});
+			}
 		}
-	});
+	);
 };

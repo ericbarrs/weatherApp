@@ -1,4 +1,3 @@
-import env from "../env";
 const axios = require("axios");
 
 export function loginUser(user) {
@@ -18,7 +17,7 @@ export function loginUser(user) {
 			localStorage.setItem("id", res.data.id);
 
 			dispatch(userProfile("LOGIN", res.data));
-			dispatch(fetchWeather(res.data.zipcode));
+			dispatch(fetchWeather(res.data.token, res.data.zipcode));
 			dispatch(auth("SUCCESS"));
 		} catch (err) {
 			localStorage.removeItem("user");
@@ -44,7 +43,7 @@ export function userHasToken(token) {
 			localStorage.setItem("id", res.data.User.id);
 
 			dispatch(userProfile("LOGIN", res.data.User));
-			dispatch(fetchWeather(res.data.User.zipcode));
+			dispatch(fetchWeather(token, res.data.User.zipcode));
 			dispatch(auth("SUCCESS"));
 		} catch (err) {
 			localStorage.removeItem("user");
@@ -66,11 +65,19 @@ export function logOutUser() {
 	};
 }
 
-export function fetchWeather(zipcode) {
+export function fetchWeather(token, zipcode) {
 	return async function (dispatch) {
-		const url = `http://api.weatherstack.com/forecast?access_key=${env.access_key}&query=${zipcode}`;
+		const config = {
+			headers: {
+				Authorization: "Bearer " + token,
+				"Content-Type": "application/json",
+			},
+		};
+
+		const body = JSON.stringify({ zipcode });
+		const url = `/weather`;
 		try {
-			const weather = await axios.get(url);
+			const weather = await axios.post(url, body, config);
 
 			try {
 				const index = Object.keys(weather.data.forecast);

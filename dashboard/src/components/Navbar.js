@@ -44,7 +44,7 @@ class Navigation extends React.Component {
 					</Nav>
 					<Form validated={false} inline>
 						<Form.Text className="NavBar-text">
-							Seach a different area
+							Search a different area
 						</Form.Text>
 						<FormControl
 							placeholder="Enter Zipcode"

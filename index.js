@@ -33,10 +33,6 @@ mongoose
 
 app.use(express.static("dashboard/build"));
 
-app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "build", "index.html"));
-});
-
 app.listen(port, (err) => {
 	if (err) console.log(err);
 	else console.log(`listening on port ${port}`);

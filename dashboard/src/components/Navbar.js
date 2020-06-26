@@ -24,7 +24,7 @@ class Navigation extends React.Component {
 	}
 
 	updateZipcode(zipcode) {
-		this.props.fetchWeather(zipcode);
+		this.props.fetchWeather(this.props.user.token, zipcode);
 	}
 	render() {
 		return (

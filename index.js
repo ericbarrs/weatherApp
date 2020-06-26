@@ -4,7 +4,8 @@ const users = require("./routes/usersRoute");
 const login = require("./routes/loginRoute");
 const settings = require("./routes/settingRoute");
 const mongoose = require("mongoose");
-const env = require("./env");
+const path = require("path");
+const env = require("./env") || process.env.PORT;
 
 app.use(express.json({ limit: "100kb" }));
 
@@ -25,6 +26,10 @@ mongoose
 	});
 
 app.use(express.static("dashboard/build"));
+
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 app.listen(env.port || process.env.PORT, (err) => {
 	if (err) console.log(err);

@@ -64,6 +64,8 @@ module.exports.create = (req, res) => {
 					const user = {};
 					user.token = token;
 					user.email = User.email;
+					user.firstName = User.firstName;
+					user.lastName = User.lastName;
 					user.id = User._id;
 					user.city = User.city;
 					user.state = User.state;

@@ -1,7 +1,6 @@
 const users = require("../models/usersModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const env = require("../env");
 
 module.exports.login = (req, res) => {
 	users.findOne({ email: req.body.email }).then(async (user) => {
@@ -26,10 +25,7 @@ module.exports.login = (req, res) => {
 		User.email = user.email;
 		User.id = user._id;
 
-		jwt.sign({ user: User }, process.env.SECRET || env.secret, function (
-			err,
-			token
-		) {
+		jwt.sign({ user: User }, process.env.SECRET, function (err, token) {
 			User.firstName = user.firstName;
 			User.lastName = user.lastName;
 			User.city = user.city;
@@ -47,7 +43,7 @@ module.exports.verify = (req, res) => {
 	const bearer = header.split(" ");
 	const token = bearer[1];
 
-	jwt.verify(token, process.env.SECRET || env.secret, (err, authorizedData) => {
+	jwt.verify(token, process.env.SECRET, (err, authorizedData) => {
 		if (err) {
 			//If error send Forbidden (403)
 			console.log(err);

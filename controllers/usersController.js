@@ -1,7 +1,6 @@
 const users = require("../models/usersModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const env = require("../env");
 const { userValidation } = require("../validation/userValidation");
 const { profileValidation } = require("../validation/profileValidation");
 
@@ -57,22 +56,21 @@ module.exports.create = (req, res) => {
 				const registeredUser = {};
 				registeredUser.email = User.email;
 				registeredUser.id = User._id;
-				jwt.sign(
-					{ user: registeredUser },
-					process.env.SECRET || env.secret,
-					function (err, token) {
-						const user = {};
-						user.token = token;
-						user.email = User.email;
-						user.id = User._id;
-						user.city = User.city;
-						user.state = User.state;
-						user.zipcode = User.zipcode;
-						user.settings = User.settings;
+				jwt.sign({ user: registeredUser }, process.env.SECRET, function (
+					err,
+					token
+				) {
+					const user = {};
+					user.token = token;
+					user.email = User.email;
+					user.id = User._id;
+					user.city = User.city;
+					user.state = User.state;
+					user.zipcode = User.zipcode;
+					user.settings = User.settings;
 
-						return res.json(user);
-					}
-				);
+					return res.json(user);
+				});
 			})
 			.catch((err) => console.log(err), res.json(err));
 	});
@@ -135,10 +133,7 @@ module.exports.saveProfile = async (req, res) => {
 		profileUser.email = User.email;
 		profileUser.id = authorizedData.user.id;
 
-		jwt.sign({ user: profileUser }, process.env.SECRET || env.secret, function (
-			err,
-			token
-		) {
+		jwt.sign({ user: profileUser }, process.env.SECRET, function (err, token) {
 			User.firstName = update.firstName;
 			User.lastName = update.lastName;
 			User.city = update.city;

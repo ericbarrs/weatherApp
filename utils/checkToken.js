@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const env = require("../env");
 
 module.exports.checkToken = (req, res, next) => {
 	const header = req.headers["authorization"];
@@ -8,7 +7,7 @@ module.exports.checkToken = (req, res, next) => {
 		const bearer = header.split(" ");
 		const token = bearer[1];
 
-		jwt.verify(token, process.env.SECRET || env.secret, (err) => {
+		jwt.verify(token, process.env.SECRET, (err) => {
 			if (err) {
 				//If error send Forbidden (403)
 				console.log("ERROR: Could not connect to the protected route");

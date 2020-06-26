@@ -1,0 +1,249 @@
+html,
+body,
+.App,
+#root {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#loginStatement {
+	padding-top: 10px;
+}
+
+.heading {
+	text-align: center;
+}
+
+.Home {
+	background-image: url("./images/backgroundHomePage.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.Login .Home,
+.Settings .Home,
+.Profile .Home {
+	height: 100vh;
+}
+
+.Home form,
+.display {
+	padding: 25px;
+	border-radius: 15px;
+	background-color: rgba(0, 0, 0, 0.6);
+	font-size: 15px;
+	color: white;
+}
+
+.form-group {
+	margin-bottom: 5px;
+}
+
+.form-control {
+	font-size: 12px;
+}
+
+.Home .btn {
+	padding: 5px;
+	font-size: 15px;
+	margin-top: 5px;
+}
+
+.Main {
+	padding-top: 3rem;
+	background-image: url("./images/backgrounImageMain.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.Main ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.Main li {
+	text-align: left;
+}
+
+.MainHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 80px;
+}
+
+.MainHeader div {
+	display: inline;
+}
+
+.MainHeader h1 {
+	text-align: center;
+	font-size: 30px;
+	vertical-align: middle;
+	display: inline;
+}
+
+.Main h2 {
+	text-align: center;
+}
+.Main h4 {
+	margin: 0;
+	padding: 80px 0 200px 0;
+	text-align: center;
+	color: black;
+}
+
+.IconImage {
+	display: inline;
+	list-style-type: none;
+	text-align: right !important;
+}
+
+hr {
+	border-color: white;
+}
+
+.NavBar-text {
+	margin: 0;
+	padding: 0 15px;
+	color: white;
+}
+
+.weatherConditions {
+	text-align: center !important;
+}
+
+.navbar-brand {
+	color: white !important;
+}
+
+.navbar-toggler {
+	background-color: white;
+}
+
+.navbar-toggler-icon {
+	background-color: white;
+}
+.nav-link {
+	color: white !important;
+}
+
+.search-navbar {
+	color: rgb(40, 167, 69) !important;
+}
+
+.error {
+	position: absolute;
+	top: 100px;
+	right: 0;
+	width: 300px;
+	font-size: 15px !important;
+}
+
+.error .alert {
+	padding: 0;
+}
+
+.alert-dismissible,
+.close {
+	padding: 0 !important;
+	padding-bottom: 1px !important;
+}
+.close {
+	font-size: 20px;
+}
+
+#greeting {
+	text-align: center;
+}
+
+.NavLink {
+	color: white;
+	padding-right: 0;
+	padding-left: 0;
+	display: block;
+	padding: 0.5rem 0;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+.Settings h1,
+.Settings h4 {
+	text-align: center;
+}
+
+.Settings hr {
+	border-color: rgba(0, 0, 0, 0.6);
+}
+
+.Settings .btn,
+.Profile .btn {
+	margin-top: 15px;
+	width: 100%;
+}
+
+.NavLink:hover {
+	color: white;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 450px) {
+	html,
+	body,
+	.App,
+	#root {
+		height: 100%;
+		overflow: hidden;
+	}
+	.Main {
+		padding: 0;
+		overflow: visible;
+	}
+
+	.error {
+		display: none;
+		position: relative;
+		bottom: 0;
+		left: 0;
+		margin: 0 auto;
+		height: min-content;
+		font-size: 12px !important;
+	}
+	.alert {
+		display: none;
+		margin-bottom: 0;
+		margin-top: 5px !important;
+		padding: 5px !important;
+	}
+
+	.form-inline .btn {
+		font-size: 15px;
+
+		margin: 5px;
+	}
+	.Register form {
+		padding: 10px;
+	}
+
+	.form-group {
+		font-size: 10px;
+		margin: 0;
+	}
+	.form-control {
+		padding: 5px 15px;
+		font-size: 10px;
+	}
+	.form-label {
+		margin: 3px 0px;
+	}
+
+	.Home .btn {
+		width: 80px;
+		margin: 10px 0;
+		font-size: 15px;
+	}
+}

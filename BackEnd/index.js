@@ -24,6 +24,8 @@ mongoose
 		console.log(`DB Error ${err}`);
 	});
 
+app.use(express.static("../frontEnd/dashboard/build"));
+
 app.listen(env.port || process.env.PORT, (err) => {
 	if (err) console.log(err);
 	else console.log(`listening on port ${process.env.PORT || env.port}`);

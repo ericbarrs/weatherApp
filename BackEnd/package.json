@@ -5,7 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "nodemon index.js"
+		"start": "node index.js",
+		"dev": "nodemon index.js",
+		"heroku-postbuild": "cd ../frontEnd/dashboard && npm install && npm run build"
 	},
 	"author": "",
 	"license": "ISC",
@@ -17,5 +19,8 @@
 		"mongoose": "^5.9.19",
 		"nodemon": "^2.0.4",
 		"react-router-dom": "^5.2.0"
+	},
+	"engines": {
+		"node": "10.x"
 	}
 }

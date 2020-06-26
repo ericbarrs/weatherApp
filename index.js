@@ -12,7 +12,7 @@ app.use(express.json({ limit: "100kb" }));
 
 app.use("/users", users);
 app.use("/login", login);
-app.use("/settings", settings);
+app.use("/user/settings", settings);
 app.use("/weather", weather);
 
 mongoose
@@ -32,6 +32,8 @@ mongoose
 	});
 
 app.use("/", express.static("dashboard/build"));
+app.use("/profile", express.static("dashboard/build"));
+app.use("/settings", express.static("dashboard/build"));
 
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "build", "index.html"));

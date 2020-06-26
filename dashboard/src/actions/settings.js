@@ -12,7 +12,7 @@ export function saveSettings(token, settings) {
 		const body = JSON.stringify({ settings });
 
 		try {
-			const res = await axios.post("/settings", body, config);
+			const res = await axios.post("/user/settings", body, config);
 			dispatch(userProfile("SETTINGS", res.data));
 		} catch (err) {
 			dispatch(userProfile("ERRORS", err.response.data));

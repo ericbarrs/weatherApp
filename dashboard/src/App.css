@@ -197,11 +197,9 @@ hr {
 	.App,
 	#root {
 		height: 100%;
-		overflow: hidden;
 	}
 	.Main {
 		padding: 0;
-		overflow: visible;
 	}
 
 	.error {

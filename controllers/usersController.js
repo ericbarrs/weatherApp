@@ -68,7 +68,7 @@ module.exports.create = (req, res) => {
 					user.state = User.state;
 					user.zipcode = User.zipcode;
 					user.settings = User.settings;
-
+					user.token = token;
 					return res.json(user);
 				});
 			})

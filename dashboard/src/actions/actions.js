@@ -1,4 +1,3 @@
-import env from "../env";
 const axios = require("axios");
 
 export function loginUser(user) {
@@ -69,7 +68,7 @@ export function logOutUser() {
 export function fetchWeather(zipcode) {
 	return async function (dispatch) {
 		const url = `http://api.weatherstack.com/forecast?access_key=${
-			process.env.ACCESS_KEY || env.access_key
+			process.env.ACCESS_KEY || require("../env").access_key
 		}&query=${zipcode}`;
 		try {
 			const weather = await axios.get(url);

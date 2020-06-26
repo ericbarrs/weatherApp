@@ -18,7 +18,7 @@ export function registerUser(user) {
 
 			dispatch(userProfile("REGISTER", res.data));
 		} catch (errors) {
-			dispatch(userProfile("ERRORS", { errors: err.response.data }));
+			dispatch(userProfile("ERRORS", { errors: errors.response.data }));
 		}
 	};
 }

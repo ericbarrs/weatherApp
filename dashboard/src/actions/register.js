@@ -16,9 +16,9 @@ export function registerUser(user) {
 			localStorage.setItem("token", res.data.token);
 			localStorage.setItem("id", res.data.id);
 
-			dispatch(userProfile(res.data));
-		} catch (err) {
-			dispatch(userProfile("ERRORS", err.response.data));
+			dispatch(userProfile("REGISTER", res.data));
+		} catch (errors) {
+			dispatch(userProfile("ERRORS", { errors: err.response.data }));
 		}
 	};
 }

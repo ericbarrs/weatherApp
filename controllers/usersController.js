@@ -56,6 +56,7 @@ module.exports.create = (req, res) => {
 				const registeredUser = {};
 				registeredUser.email = User.email;
 				registeredUser.id = User._id;
+
 				jwt.sign({ user: registeredUser }, process.env.secret, function (
 					err,
 					token
@@ -68,7 +69,6 @@ module.exports.create = (req, res) => {
 					user.state = User.state;
 					user.zipcode = User.zipcode;
 					user.settings = User.settings;
-					user.token = token;
 					return res.json(user);
 				});
 			})

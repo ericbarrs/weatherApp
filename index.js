@@ -38,7 +38,7 @@ app.get("*", (req, res) => {
 
 	if (protected.includes(path)) {
 		// Return the actual file
-		res.sendFile(path.join(__dirname, "build", path));
+		res.sendFile(path.join(__dirname, "build", "index.html"));
 	} else {
 		res.sendFile(path.join(__dirname, "build", "index.html"));
 	}

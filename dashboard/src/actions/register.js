@@ -1,4 +1,5 @@
 const axios = require("axios");
+import { fetchWeather } from "./actions";
 
 export function registerUser(user) {
 	return async function (dispatch) {
@@ -17,6 +18,7 @@ export function registerUser(user) {
 			localStorage.setItem("id", res.data.id);
 
 			dispatch(userProfile("REGISTER", res.data));
+			dispatch(fetchWeather(res.data.token, res.data.zipcode));
 		} catch (errors) {
 			dispatch(userProfile("ERRORS", { errors: errors.response.data }));
 		}

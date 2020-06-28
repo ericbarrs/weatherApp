@@ -1,5 +1,4 @@
 import axios from "axios";
-import { fetchWeather } from "./actions";
 
 export function registerUser(user) {
 	return async function (dispatch) {

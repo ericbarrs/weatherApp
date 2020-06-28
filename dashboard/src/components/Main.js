@@ -111,33 +111,39 @@ class Main extends React.Component {
 
 									<li>
 										Sunrise:{" "}
-										{this.props.weather.forecast.astro.sunrise ||
-											"No Data at this time"}
+										{this.props.weather.forecast
+											? this.props.weather.forecast.astro.sunrise
+											: "No Data at this time"}
 									</li>
 									<li>
 										Sunset:{" "}
-										{this.props.weather.forecast.astro.sunset ||
-											"No Data at this time"}
+										{this.props.weather.forecast
+											? this.props.weather.forecast.astro.sunset
+											: "No Data at this time"}
 									</li>
 									<li>
 										Moonrise:{" "}
-										{this.props.weather.forecast.astro.moonrise ||
-											"No Data at this time"}
+										{this.props.weather.forecast
+											? this.props.weather.forecast.astro.moonrise
+											: "No Data at this time"}
 									</li>
 									<li>
 										Moonset:{" "}
-										{this.props.weather.forecast.astro.moonset ||
-											"No Data at this time"}
+										{this.props.weather.forecast
+											? this.props.weather.forecast.astro.moonset
+											: "No Data at this time"}
 									</li>
 									<li>
 										Moon Phase:{" "}
-										{this.props.weather.forecast.astro.moon_phase ||
-											"No Data at this time"}
+										{this.props.weather.forecast
+											? this.props.weather.forecast.astro.moon_phase
+											: "No Data at this time"}
 									</li>
 									<li>
 										Moon Illumination:{" "}
-										{this.props.weather.forecast.astro.moon_illumination ||
-											"No Data at this time"}
+										{this.props.weather.forecast
+											? this.props.weather.forecast.astro.moon_illumination
+											: "No Data at this time"}
 									</li>
 								</ul>
 							</div>

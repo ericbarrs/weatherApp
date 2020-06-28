@@ -7,6 +7,15 @@ let initialUserState = {
 	id: localStorage.getItem("id"),
 	isAuthenticated: false,
 	loading: true,
+	errors: {},
+};
+
+let logOutState = {
+	token: "",
+	email: "",
+	id: "",
+	isAuthenticated: false,
+	loading: false,
 };
 
 let initialWeatherState = {};
@@ -16,6 +25,7 @@ function user(state = initialUserState, action) {
 		return (state = {
 			...state,
 			...action.payload,
+			errors: {},
 			isAuthenticated: true,
 			loading: false,
 		});
@@ -23,6 +33,7 @@ function user(state = initialUserState, action) {
 		return (state = {
 			...state,
 			...action.payload,
+			errors: {},
 			isAuthenticated: true,
 			loading: false,
 		});
@@ -31,7 +42,7 @@ function user(state = initialUserState, action) {
 	} else if (action.type === "ERRORS") {
 		return (state = { ...state, ...action.payload, loading: false });
 	} else if (action.type === "LOGOUT") {
-		return (state = initialUserState);
+		return (state = logOutState);
 	} else {
 		return state;
 	}

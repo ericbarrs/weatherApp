@@ -24,7 +24,7 @@ export function loginUser(user) {
 			localStorage.removeItem("token");
 			localStorage.removeItem("id");
 
-			dispatch(userProfile("LOGOUT", {}));
+			dispatch(userProfile("ERRORS", { errors: errors.response.data }));
 		}
 	};
 }
@@ -79,15 +79,7 @@ export function fetchWeather(token, zipcode) {
 		try {
 			const weather = await axios.post(url, body, config);
 
-			try {
-				const index = Object.keys(weather.data.forecast);
-				const forcast = weather.data.forecast[index];
-				weather.data.forecast = forcast;
-
-				dispatch(weatherProfile("FETCH", weather.data));
-			} catch (err) {
-				console.log(err);
-			}
+			dispatch(weatherProfile("FETCH", weather.data));
 		} catch (err) {
 			console.log(err);
 		}

@@ -92,15 +92,17 @@ class Main extends React.Component {
 									<hr />
 									<h5>
 										High Today of:{" "}
-										{tempConverter(this.props.weather.forecast.maxtemp) ||
-											"No Data at this time"}
+										{this.props.weather.forecast
+											? tempConverter(this.props.weather.forecast.maxtemp)
+											: "No Data at this time"}
 										<>&#8457;</>
 									</h5>
 									<h5>
 										{" "}
 										Low Today of:{" "}
-										{tempConverter(this.props.weather.forecast.mintemp) ||
-											"No Data at this time"}
+										{this.props.weather.forecast
+											? tempConverter(this.props.weather.forecast.mintemp)
+											: "No Data at this time"}
 										<>&#8457;</>
 									</h5>
 									<hr />

@@ -15,8 +15,13 @@ body,
 	text-align: center;
 }
 
-.Home {
+.Login .Home,
+.Settings .Home,
+.Profile .Home {
 	height: 100%;
+}
+
+.Home {
 	background-image: url("./images/backgroundHomePage.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -195,6 +200,9 @@ hr {
 	}
 	.Main {
 		padding: 0;
+	}
+
+	.Register .Login {
 	}
 
 	.alert {

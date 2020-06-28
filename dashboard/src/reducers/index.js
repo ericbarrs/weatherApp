@@ -14,6 +14,7 @@ let logOutState = {
 	token: "",
 	email: "",
 	id: "",
+	errors: {},
 	isAuthenticated: false,
 	loading: false,
 };

@@ -8,12 +8,11 @@ module.exports.weatherData = async (req, res) => {
 		const result = await fetch(url);
 		const data = await result.json();
 
-		console.log(data.forecast);
 		if (data.forcast) {
 			const index = Object.keys(data.forecast);
 			const forecast = data.forecast[index];
 			data.forecast = forecast;
-
+			console.log(data.forecast);
 			res.json(data);
 		} else {
 			res.json(data);

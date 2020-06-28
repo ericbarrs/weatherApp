@@ -15,9 +15,10 @@ body,
 	text-align: center;
 }
 
-.Login .Home,
-.Settings .Home,
-.Profile .Home {
+.Login,
+.Register,
+.Settings,
+.Profile {
 	height: 100%;
 }
 

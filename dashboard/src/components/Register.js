@@ -43,7 +43,7 @@ class Register extends React.Component {
 		return (
 			this.isItValid(field) && (
 				<Alert variant="danger" style={{ marginTop: "5px" }}>
-					{this.props.user.errors[field]}
+					{this.props.user.errors.errors[field]}
 				</Alert>
 			)
 		);
@@ -73,6 +73,7 @@ class Register extends React.Component {
 									<Form.Text className="text-info">
 										We'll never share your email with anyone else.
 									</Form.Text>
+									{this.AlertMessage("email")}
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>First Name</Form.Label>
@@ -86,6 +87,7 @@ class Register extends React.Component {
 											if (e.charCode === 13) e.preventDefault();
 										}}
 									/>
+									{this.AlertMessage("firstName")}
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>Last Name</Form.Label>
@@ -100,6 +102,7 @@ class Register extends React.Component {
 										}}
 									/>
 								</Form.Group>
+								{this.AlertMessage("lastName")}
 								<Form.Group>
 									<Form.Label>City</Form.Label>
 									<Form.Control
@@ -112,6 +115,7 @@ class Register extends React.Component {
 											if (e.charCode === 13) e.preventDefault();
 										}}
 									/>
+									{this.AlertMessage("city")}
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>State</Form.Label>
@@ -125,6 +129,8 @@ class Register extends React.Component {
 											if (e.charCode === 13) e.preventDefault();
 										}}
 									/>
+
+									{this.AlertMessage("state")}
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>Zipcode</Form.Label>
@@ -139,6 +145,8 @@ class Register extends React.Component {
 											if (e.charCode === 13) e.preventDefault();
 										}}
 									/>
+
+									{this.AlertMessage("zipcode")}
 								</Form.Group>
 								<Form.Group controlId="formBasicPassword">
 									<Form.Label>Password</Form.Label>
@@ -166,6 +174,7 @@ class Register extends React.Component {
 										onChange={(e) => this.updateHandler(e)}
 									/>
 								</Form.Group>
+								{this.AlertMessage("password")}
 								<Button
 									variant="primary"
 									onClick={() => {
@@ -182,15 +191,6 @@ class Register extends React.Component {
 						</Col>
 					</Row>
 				</Container>
-				<div className="error">
-					{this.AlertMessage("email")}
-					{this.AlertMessage("firstName")}
-					{this.AlertMessage("lastName")}
-					{this.AlertMessage("city")}
-					{this.AlertMessage("state")}
-					{this.AlertMessage("zipcode")}
-					{this.AlertMessage("password")}
-				</div>
 			</div>
 		);
 	}

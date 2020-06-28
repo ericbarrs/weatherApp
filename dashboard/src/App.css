@@ -138,16 +138,14 @@ hr {
 	color: rgb(40, 167, 69) !important;
 }
 
-.error {
-	position: absolute;
-	top: 100px;
-	right: 0;
-	width: 300px;
-	font-size: 15px !important;
+.alert {
+	padding: 0;
 }
 
-.error .alert {
-	padding: 0;
+.alert p {
+	margin: 0;
+	text-align: center;
+	font-size: 0.65rem;
 }
 
 .alert-dismissible,
@@ -204,18 +202,9 @@ hr {
 		padding: 0;
 	}
 
-	.error {
-		display: none;
-		position: relative;
-		bottom: 0;
-		left: 0;
-		margin: 0 auto;
-		height: min-content;
-		font-size: 12px !important;
-	}
 	.alert {
-		display: none;
 		margin-bottom: 0;
+		font-size: 12px !important;
 		margin-top: 5px !important;
 		padding: 5px !important;
 	}

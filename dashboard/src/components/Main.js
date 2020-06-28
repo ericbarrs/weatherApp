@@ -30,7 +30,7 @@ class Main extends React.Component {
 			tempConverter(temperature) < settings.high &&
 			tempConverter(temperature) > settings.low
 		) {
-			return <h4>Temperature is within your optical workout range</h4>;
+			return <h4>Temperature is within your optimal workout range</h4>;
 		} else if (weather_descriptions[0] === settings.weather_conditions[0]) {
 			return (
 				<h4>Temperature isn't within your range but the weather is nice</h4>

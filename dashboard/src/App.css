@@ -23,8 +23,7 @@ body,
 }
 
 .Home {
-	height: 100%;
-	min-height: 1000px;
+	background-attachment: fixed;
 	background-image: url("./images/backgroundHomePage.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -55,9 +54,8 @@ body,
 }
 
 .Main {
-	height: 100%;
-	min-height: 1000px;
 	padding-top: 3rem;
+	background-attachment: fixed;
 	background-image: url("./images/backgrounImageMain.jpg");
 	background-position: center;
 	background-repeat: no-repeat;

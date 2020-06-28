@@ -32,8 +32,8 @@ mongoose
 	});
 
 app.use("/", express.static("dashboard/build"));
-app.get("/login", express.static("dashboard/build"));
-app.get("/register", express.static("dashboard/build"));
+app.use("/login", express.static("dashboard/build"));
+app.use("/register", express.static("dashboard/build"));
 app.use("/profile", express.static("dashboard/build"));
 app.use("/settings", express.static("dashboard/build"));
 

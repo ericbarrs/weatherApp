@@ -30,8 +30,7 @@ class Register extends React.Component {
 
 	isItValid = (property) => {
 		try {
-			console.log(this.props.user.errors.errors);
-			if (this.props.user.errors[property]) {
+			if (this.props.user.errors.errors[property]) {
 				return true;
 			} else {
 				return false;

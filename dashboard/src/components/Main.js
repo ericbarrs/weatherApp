@@ -92,31 +92,50 @@ class Main extends React.Component {
 									<hr />
 									<h5>
 										High Today of:{" "}
-										{tempConverter(this.props.weather.forecast.maxtemp)}
+										{tempConverter(this.props.weather.forecast.maxtemp) ||
+											"No Data at this time"}
 										<>&#8457;</>
 									</h5>
 									<h5>
 										{" "}
 										Low Today of:{" "}
-										{tempConverter(this.props.weather.forecast.mintemp)}
+										{tempConverter(this.props.weather.forecast.mintemp) ||
+											"No Data at this time"}
 										<>&#8457;</>
 									</h5>
 									<hr />
 									<li>Cloudcover: {this.props.weather.current.cloudcover}</li>
 									<li>Humidity: {this.props.weather.current.humidity}</li>
 
-									<li>Sunrise: {this.props.weather.forecast.astro.sunrise}</li>
-									<li>Sunset: {this.props.weather.forecast.astro.sunset}</li>
 									<li>
-										Moonrise: {this.props.weather.forecast.astro.moonrise}
+										Sunrise:{" "}
+										{this.props.weather.forecast.astro.sunrise ||
+											"No Data at this time"}
 									</li>
-									<li>Moonset: {this.props.weather.forecast.astro.moonset}</li>
 									<li>
-										Moon Phase: {this.props.weather.forecast.astro.moon_phase}
+										Sunset:{" "}
+										{this.props.weather.forecast.astro.sunset ||
+											"No Data at this time"}
+									</li>
+									<li>
+										Moonrise:{" "}
+										{this.props.weather.forecast.astro.moonrise ||
+											"No Data at this time"}
+									</li>
+									<li>
+										Moonset:{" "}
+										{this.props.weather.forecast.astro.moonset ||
+											"No Data at this time"}
+									</li>
+									<li>
+										Moon Phase:{" "}
+										{this.props.weather.forecast.astro.moon_phase ||
+											"No Data at this time"}
 									</li>
 									<li>
 										Moon Illumination:{" "}
-										{this.props.weather.forecast.astro.moon_illumination}
+										{this.props.weather.forecast.astro.moon_illumination ||
+											"No Data at this time"}
 									</li>
 								</ul>
 							</div>

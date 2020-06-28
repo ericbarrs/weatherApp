@@ -6,14 +6,6 @@ import { connect } from "react-redux";
 import { tempConverter } from "../utils.js/tempConverter";
 
 class Main extends React.Component {
-	state = {
-		weather: {},
-		date: "",
-		city: "",
-	};
-
-	componentDidMount() {}
-
 	weatherIcons(icon, ind) {
 		return (
 			<li className="IconImage" key={ind}>
@@ -90,61 +82,68 @@ class Main extends React.Component {
 										)}
 									</li>
 									<hr />
-									<h5>
-										High Today of:{" "}
-										{this.props.weather.forecast
-											? tempConverter(this.props.weather.forecast.maxtemp)
-											: "No Data at this time"}
-										<>&#8457;</>
-									</h5>
-									<h5>
-										{" "}
-										Low Today of:{" "}
-										{this.props.weather.forecast
-											? tempConverter(this.props.weather.forecast.mintemp)
-											: "No Data at this time"}
-										<>&#8457;</>
-									</h5>
-									<hr />
+									{this.props.weather.forecast ? (
+										<>
+											<h5>
+												High Today of:{" "}
+												{this.props.weather.forecast
+													? tempConverter(this.props.weather.forecast.maxtemp)
+													: "No Data at this time"}
+												<>&#8457;</>
+											</h5>
+											<h5>
+												{" "}
+												Low Today of:{" "}
+												{this.props.weather.forecast
+													? tempConverter(this.props.weather.forecast.mintemp)
+													: "No Data at this time"}
+												<>&#8457;</>
+											</h5>
+											<hr />
+										</>
+									) : null}
 									<li>Cloudcover: {this.props.weather.current.cloudcover}</li>
 									<li>Humidity: {this.props.weather.current.humidity}</li>
-
-									<li>
-										Sunrise:{" "}
-										{this.props.weather.forecast
-											? this.props.weather.forecast.astro.sunrise
-											: "No Data at this time"}
-									</li>
-									<li>
-										Sunset:{" "}
-										{this.props.weather.forecast
-											? this.props.weather.forecast.astro.sunset
-											: "No Data at this time"}
-									</li>
-									<li>
-										Moonrise:{" "}
-										{this.props.weather.forecast
-											? this.props.weather.forecast.astro.moonrise
-											: "No Data at this time"}
-									</li>
-									<li>
-										Moonset:{" "}
-										{this.props.weather.forecast
-											? this.props.weather.forecast.astro.moonset
-											: "No Data at this time"}
-									</li>
-									<li>
-										Moon Phase:{" "}
-										{this.props.weather.forecast
-											? this.props.weather.forecast.astro.moon_phase
-											: "No Data at this time"}
-									</li>
-									<li>
-										Moon Illumination:{" "}
-										{this.props.weather.forecast
-											? this.props.weather.forecast.astro.moon_illumination
-											: "No Data at this time"}
-									</li>
+									{this.props.weather.forecast ? (
+										<>
+											<li>
+												Sunrise:{" "}
+												{this.props.weather.forecast
+													? this.props.weather.forecast.astro.sunrise
+													: "No Data at this time"}
+											</li>
+											<li>
+												Sunset:{" "}
+												{this.props.weather.forecast
+													? this.props.weather.forecast.astro.sunset
+													: "No Data at this time"}
+											</li>
+											<li>
+												Moonrise:{" "}
+												{this.props.weather.forecast
+													? this.props.weather.forecast.astro.moonrise
+													: "No Data at this time"}
+											</li>
+											<li>
+												Moonset:{" "}
+												{this.props.weather.forecast
+													? this.props.weather.forecast.astro.moonset
+													: "No Data at this time"}
+											</li>
+											<li>
+												Moon Phase:{" "}
+												{this.props.weather.forecast
+													? this.props.weather.forecast.astro.moon_phase
+													: "No Data at this time"}
+											</li>
+											<li>
+												Moon Illumination:{" "}
+												{this.props.weather.forecast
+													? this.props.weather.forecast.astro.moon_illumination
+													: "No Data at this time"}
+											</li>
+										</>
+									) : null}
 								</ul>
 							</div>
 						</Col>

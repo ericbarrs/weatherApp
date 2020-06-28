@@ -22,7 +22,7 @@ class Profile extends React.Component {
 
 	isItValid = (property) => {
 		try {
-			if (this.props.user.errors[property]) {
+			if (this.props.user.errors.errors[property]) {
 				return true;
 			} else {
 				return false;
@@ -34,7 +34,7 @@ class Profile extends React.Component {
 		return (
 			this.isItValid(field) && (
 				<Alert variant="danger" dismissible={true} style={{ marginTop: "5px" }}>
-					{this.props.user.errors[field]}
+					{this.props.user.errors.errors[field]}
 				</Alert>
 			)
 		);

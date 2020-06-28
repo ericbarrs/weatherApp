@@ -61,7 +61,7 @@ class Login extends React.Component {
 									</Form.Group>
 									{this.props.user.errors.error && (
 										<Alert variant="danger" style={{ marginTop: "5px" }}>
-											{this.props.user.errors.error}
+											<p>{this.props.user.errors.error}</p>
 										</Alert>
 									)}
 									<Button

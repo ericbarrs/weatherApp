@@ -113,12 +113,13 @@ class Settings extends React.Component {
 										}
 										onChange={(e) => this.updateHandlerArr(e)}
 									>
-										<option key="0"></option>
+										<option key="0">None</option>
 										<option key="1">Sunny</option>
 										<option key="2">Cloudy</option>
 										<option key="3">Rain</option>
 										<option key="4">Partly cloudy</option>
 										<option key="5">Overcast</option>
+										<option key="6">Clear</option>
 									</Form.Control>
 									<Button
 										variant="primary"

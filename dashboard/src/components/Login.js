@@ -59,9 +59,11 @@ class Login extends React.Component {
 											onChange={(e) => this.updateHandler(e)}
 										/>
 									</Form.Group>
-									<Alert variant="danger" style={{ marginTop: "5px" }}>
-										{this.props.user.errors.error}
-									</Alert>
+									{this.props.user.errors.error && (
+										<Alert variant="danger" style={{ marginTop: "5px" }}>
+											{this.props.user.errors.error}
+										</Alert>
+									)}
 									<Button
 										variant="primary"
 										onKeyPress={(e) => {

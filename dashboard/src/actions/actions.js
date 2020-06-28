@@ -19,7 +19,7 @@ export function loginUser(user) {
 			dispatch(userProfile("LOGIN", res.data));
 			dispatch(fetchWeather(res.data.token, res.data.zipcode));
 			dispatch(auth("SUCCESS"));
-		} catch (err) {
+		} catch (errors) {
 			localStorage.removeItem("user");
 			localStorage.removeItem("token");
 			localStorage.removeItem("id");
